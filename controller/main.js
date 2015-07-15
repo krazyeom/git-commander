@@ -194,9 +194,17 @@ _.each(view.list, function (elem) {
 
   elem.key(['C-d'], function () {
     if (this.getItem(this.selected) === undefined) {
-      return;
-    }
+        view.popup.content = '{center}There is no diff file you selected{/center}';
+        view.popup.hidden = false;
+        main.reload();
 
+        setTimeout(function(){
+           view.popup.hidden = true;
+           main.reload();
+        }, 1000);
+
+        return;
+    }
     main.show(diff);
   });
 
@@ -210,4 +218,3 @@ _.each(view.list, function (elem) {
 });
 
 module.exports = main;
-

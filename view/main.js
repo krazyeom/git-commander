@@ -23,7 +23,11 @@ _.merge(styles, {
   },
   loading : {
     parent: screen
+  },
+  popup : {
+    parent: screen
   }
+
 });
 
 var title = {
@@ -44,9 +48,12 @@ blessed.listbar(styles.menubar2);
 
 var loading = blessed.loading(styles.loading);
 
+var popup = blessed.box(styles.popup);
+
 module.exports = {
   screen : screen,
   title  : title,
   list   : list,
-  loading: loading
+  loading: loading,
+  popup: popup
 };
